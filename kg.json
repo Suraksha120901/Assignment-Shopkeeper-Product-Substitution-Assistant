@@ -1,0 +1,28 @@
+{
+  "nodes": [
+    {"id": "p_milk_a", "props": {"type": "product", "name": "FreshFarm Whole Milk 1L", "price": 60, "in_stock": false, "brand": "FreshFarm", "category": "cat_milk", "tags": ["veg", "contains_lactose"]}},
+    {"id": "p_milk_b", "props": {"type": "product", "name": "HealthyChoice Lactose-Free Milk 1L", "price": 85, "in_stock": true, "brand": "HealthyChoice", "category": "cat_milk", "tags": ["veg", "lactose_free"]}},
+    {"id": "p_milk_c", "props": {"type": "product", "name": "DailyDairy Skimmed Milk 1L", "price": 55, "in_stock": true, "brand": "DailyDairy", "category": "cat_milk", "tags": ["veg", "low_fat", "contains_lactose"]}},
+    {"id": "p_soy_a", "props": {"type": "product", "name": "SoyPure Soya Milk 1L", "price": 95, "in_stock": true, "brand": "SoyPure", "category": "cat_plant_milk", "tags": ["veg", "lactose_free", "soy"]}},
+    {"id": "p_curd_a", "props": {"type": "product", "name": "FreshFarm Curd 500g", "price": 45, "in_stock": true, "brand": "FreshFarm", "category": "cat_yogurt", "tags": ["veg", "contains_lactose"]}},
+    {"id": "brand_freshfarm", "props": {"type": "brand", "name": "FreshFarm"}},
+    {"id": "brand_healthy", "props": {"type": "brand", "name": "HealthyChoice"}},
+    {"id": "cat_milk", "props": {"type": "category", "name": "Milk"}},
+    {"id": "cat_plant_milk", "props": {"type": "category", "name": "Plant-based Milk"}},
+    {"id": "cat_yogurt", "props": {"type": "category", "name": "Yogurt / Curd"}}
+  ],
+  "edges": [
+    {"source": "p_milk_a", "target": "cat_milk", "type": "IS_A"},
+    {"source": "p_milk_b", "target": "cat_milk", "type": "IS_A"},
+    {"source": "p_milk_c", "target": "cat_milk", "type": "IS_A"},
+    {"source": "p_soy_a", "target": "cat_plant_milk", "type": "IS_A"},
+    {"source": "p_curd_a", "target": "cat_yogurt", "type": "IS_A"},
+    {"source": "brand_freshfarm", "target": "p_milk_a", "type": "HAS_BRAND"},
+    {"source": "brand_healthy", "target": "p_milk_b", "type": "HAS_BRAND"},
+    {"source": "cat_plant_milk", "target": "cat_milk", "type": "SIMILAR_TO"},
+    {"source": "p_milk_a", "target": "brand_freshfarm", "type": "HAS_BRAND"},
+    {"source": "p_curd_a", "target": "brand_freshfarm", "type": "HAS_BRAND"},
+    {"source": "p_milk_b", "target": "brand_healthy", "type": "HAS_BRAND"},
+    {"source": "cat_milk", "target": "cat_plant_milk", "type": "SIMILAR_TO"}
+  ]
+}
